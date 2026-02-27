@@ -60,4 +60,10 @@ public class Road {
     public void setType(Type type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+
+        return "Road{" + "From=" + from + "To=" + to + "Type=" + type + "Length=" + length + "SpeedLimit=" + speedLimit + " }";
+    }
 }

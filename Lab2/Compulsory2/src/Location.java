@@ -5,7 +5,8 @@ public class Location {
     public enum Type {
         city,
         airport,
-        gasStation
+        gasStation,
+        supermarket
     }
 
     Type type;
@@ -14,10 +15,11 @@ public class Location {
 
     Location() {
 
-        this(0, 0);
+        this(0, 0, Type.city);
     }
 
-    Location(int x, int y) {
+    Location(int x, int y, Type type) {
+        this.type = type;
         this.x = x;
         this.y = y;
     }
@@ -40,6 +42,12 @@ public class Location {
     }
     public void setType(Type type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+
+        return "Location{" + "name=" + name + ", type=" + type + " }";
     }
 
 }
