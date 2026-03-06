@@ -1,9 +1,9 @@
 public class Road {
 
     public enum Type{
-        highway,
-        express,
-        country
+        HIGHWAY,
+        EXPRESS,
+        COUNTRY
     }
 
     Location from, to;
@@ -13,7 +13,7 @@ public class Road {
 
     Road(Location from, Location to){
         double length = Math.sqrt((from.x-to.x)*(from.x-to.x) +  (from.y-to.y)*(from.y-to.y));
-        this(from, to, Type.country, length, 60 );
+        this(from, to, Type.COUNTRY, length, 60 );
     }
 
     Road(Location from, Location to, Road.Type type, double length,  int speedLimit ){
@@ -65,5 +65,22 @@ public class Road {
     public String toString() {
 
         return "Road{" + "From=" + from + "To=" + to + "Type=" + type + "Length=" + length + "SpeedLimit=" + speedLimit + " }";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Road road = (Road) o;
+
+        return from.equals(road.from) && to.equals(road.to);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(from, to);
     }
 }

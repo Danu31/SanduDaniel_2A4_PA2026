@@ -1,24 +1,33 @@
-public class Location {
+/**
+ * Clasa pentru locatie -> oras, aeroport, munte etc.
+ */
+public abstract sealed class Location permits City, Airport, Mountain {
 
+    /**
+     * Numele locatiei
+     */
     private String name;
 
     public enum Type {
-        city,
-        airport,
-        gasStation,
-        supermarket
+        CITY,
+        AIRPORT,
+        MOUNTAIN
     }
 
     Type type;
 
+    /**
+     * Coordonatele x si y ale locatiei
+     */
     public final int x, y;
 
     Location() {
 
-        this(0, 0, Type.city);
+        this("unkown", 0, 0, Type.CITY);
     }
 
-    Location(int x, int y, Type type) {
+    Location(String name, int x, int y, Type type) {
+        this.name = name;
         this.type = type;
         this.x = x;
         this.y = y;
@@ -50,4 +59,20 @@ public class Location {
         return "Location{" + "name=" + name + ", type=" + type + " }";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Location location = (Location) o;
+
+        return x == location.x && y == location.y && name.equals(location.name) && type == location.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(name, x, y);
+    }
 }
