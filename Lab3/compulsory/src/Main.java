@@ -21,7 +21,12 @@ void main() {
 
     SocialNetwork socialNetwork = new SocialNetwork(profiles);
 
+    cosmin.addRelationship(daniel,relationship.FRIENDSHIP);
+    cosmin.addRelationship(razvan,relationship.FRIENDSHIP);
+
     SocialNetwork.sortProfiles();
     SocialNetwork.printProfiles();
+
+
 
 }

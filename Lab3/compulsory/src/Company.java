@@ -10,6 +10,7 @@ public class Company implements Profile, Comparable<Company>{
         this.name = name;
     }
 
+    @Override
     public int getId() {
         return id;
     }
