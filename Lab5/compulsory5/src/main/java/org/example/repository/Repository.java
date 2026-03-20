@@ -38,4 +38,5 @@ public class Repository {
             throw new ResourceException("Nu s-a putut deschide resursa: " + e.getMessage());
         }
     }
+
 }

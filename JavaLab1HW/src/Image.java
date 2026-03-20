@@ -3,7 +3,6 @@ public class Image{
     private int n;
     private int[][] matrix;
 
-    //constructori
     public Image(){
         this(10);
     }

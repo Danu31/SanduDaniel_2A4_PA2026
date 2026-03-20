@@ -23,15 +23,11 @@ public class Main {
             Intersection to = intersections.get(random.nextInt(intersections.size()));
 
             if (!from.equals(to)) {
-                Street street = new Street(
-                        faker.address().streetName(),
-                        faker.number().numberBetween(10, 500),
-                        from,
-                        to
-                ) {};
+                Street street = new Street(faker.address().streetName(), faker.number().numberBetween(10, 500), from, to) {};
                 streetList.add(street);
             }
         }
+
 
 //      Collections.sort(streetList);
         streetList.sort((street1, street2) -> Integer.compare(street1.getLength(), street2.getLength()));

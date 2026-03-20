@@ -1,5 +1,8 @@
 package org.example.main;
 
+import org.example.command.Command;
+import org.example.command.ReportCommand;
+import org.example.command.ViewCommand;
 import org.example.repository.Repository;
 import org.example.resource.Resource;
 
@@ -21,13 +24,21 @@ public class Main {
 
             System.out.println(repo.toString());
 
-            repo.openResource("1");
-            repo.openResource("4");
-            repo.openResource("wrong id for testing");
+//            repo.openResource("1");
+//            repo.openResource("4");
+//            repo.openResource("wrong id for testing");
+
+            Command viewCommand = new ViewCommand(oneDndPHB);
+            viewCommand.execute();
+
+            Command reportCommand = new ReportCommand(repo);
+            reportCommand.execute();
 
         } catch (Exception e) {
             System.err.println("Eroare: " + e.getMessage());
         }
+
+
     }
 
 }
